@@ -2,6 +2,7 @@ plugins {
     application
     jacoco
     kotlin("jvm") version "1.3.50"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.3.50"
 }
 
 application {
@@ -15,9 +16,14 @@ repositories {
 
 dependencies {
     val cliktVersion = "2.1.0"
+    val klockVersion = "1.7.3"
     val koinVersion = "2.0.1"
+    val serializationRuntimeVersion = "0.13.0"
 
+    implementation(kotlin("stdlib"))
     implementation("com.github.ajalt:clikt:$cliktVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationRuntimeVersion")
+    implementation("com.soywiz.korlibs.klock:klock-jvm:$klockVersion")
     implementation("org.koin:koin-core:$koinVersion")
 
     // Test
