@@ -9,7 +9,6 @@ import com.github.daiwahome.alt.model.GeometryLocation
 import com.github.daiwahome.alt.model.GeometryLocationType
 import com.github.daiwahome.alt.model.GeometryBoundary
 import com.github.daiwahome.alt.model.PlaceType
-import com.github.daiwahome.alt.model.PlusCode
 import com.github.daiwahome.alt.model.ReverseGeocodingResult
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Nested

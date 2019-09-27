@@ -3,6 +3,8 @@ plugins {
     jacoco
     kotlin("jvm") version "1.3.50"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.3.50"
+    id("org.jlleitschuh.gradle.ktlint") version "8.2.0"
+    id("org.jlleitschuh.gradle.ktlint-idea") version "8.2.0"
 }
 
 application {

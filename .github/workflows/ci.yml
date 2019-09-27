@@ -3,6 +3,13 @@ name: CI
 on: push
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: MrRamych/gradle-actions/openjdk-11@3.0
+        with:
+          args: ktlintCheck
   test:
     runs-on: ubuntu-latest
     steps:
@@ -14,6 +21,12 @@ jobs:
         with:
           name: jacoco-test-report
           path: build/reports/jacoco/test
+  notify:
+    runs-on: ubuntu-latest
+    needs:
+      - lint
+      - test
+    steps:
       - name: Send notification to Slack
         uses: 8398a7/action-slack@v2
         with:
