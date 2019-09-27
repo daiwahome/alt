@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClassName = "com.github.daiwahome.alt.MainKt"
+    mainClassName = "com.github.daiwahome.alt.AltApplicationKt"
 }
 
 repositories {
@@ -12,5 +12,9 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.ajalt:clikt:2.1.0")
+    val cliktVersion = "2.1.0"
+    val koinVersion = "2.0.1"
+
+    implementation("com.github.ajalt:clikt:$cliktVersion")
+    implementation("org.koin:koin-core:$koinVersion")
 }
