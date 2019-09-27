@@ -1,1 +1,1 @@
-rootProject.name = "address-lookup-with-timeline"
+rootProject.name = "alt"
