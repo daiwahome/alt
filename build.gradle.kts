@@ -1,5 +1,6 @@
 plugins {
     application
+    jacoco
     kotlin("jvm") version "1.3.50"
 }
 
@@ -9,6 +10,7 @@ application {
 
 repositories {
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -17,4 +19,28 @@ dependencies {
 
     implementation("com.github.ajalt:clikt:$cliktVersion")
     implementation("org.koin:koin-core:$koinVersion")
+
+    // Test
+    val assertkVersion = "0.20"
+    val junitVersion = "5.5.2"
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:$assertkVersion")
+}
+
+jacoco {
+    toolVersion = "0.8.4"
+    applyTo(tasks.run.get())
+}
+
+tasks.jacocoTestReport {
+    reports {
+        csv.isEnabled = false
+        xml.isEnabled = false
+    }
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
