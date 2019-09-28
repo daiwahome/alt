@@ -18,6 +18,7 @@ import com.github.daiwahome.alt.service.GoogleApiService
 import com.soywiz.klock.DateTime
 import kotlinx.serialization.json.Json
 import java.io.File
+import kotlin.system.exitProcess
 
 @kotlinx.serialization.UnstableDefault
 class AltCli(
@@ -37,6 +38,12 @@ class AltCli(
     private val dryRun: Boolean by option(
         "--dry-run",
         help = "dry run flag"
+    )
+        .flag()
+
+    private val raw: Boolean by option(
+        "--raw",
+        help = "raw output flag"
     )
         .flag()
 
@@ -82,7 +89,8 @@ class AltCli(
 
     override fun run() {
         if (apiKey == null) {
-            error("Should set GOOGLE_MAP_API_KEY or use --api-key option.")
+            echo("Should set GOOGLE_MAP_API_KEY or use --api-key option.")
+            exitProcess(1)
         }
 
         val history = Json.parse(LocationHistory.serializer(), path.readText())
@@ -122,10 +130,13 @@ class AltCli(
             googleApiService.requestReverseGeocoding(it.first, it.second, apiKey!!)
         }
 
+        if (raw) {
+            echo(responses.joinToString("\n") { Json.stringify(ReverseGeocodingResponse.serializer(), it) })
+            return
+        }
+
         responses.flatMap { response ->
-            response.results.flatMap { result ->
-                result.addressComponents.map { it.longName }
-            }
+            response.results.map { it.formattedAddress }
         }.let {
             echo(it.joinToString("\n"))
         }
