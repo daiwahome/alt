@@ -10,7 +10,6 @@ import com.github.daiwahome.alt.service.FilterService
 import com.soywiz.klock.DateTime
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import kotlin.math.sqrt
 
 internal class FilterServiceTest {
 
@@ -29,8 +28,8 @@ internal class FilterServiceTest {
                         month = 1,
                         day = 1
                     ),
-                    latitude = 1.0,
-                    longitude = 0.0,
+                    latitude = 35.676793,
+                    longitude = 139.73727,
                     accuracy = 1,
                     activities = emptyList()
                 ),
@@ -40,8 +39,8 @@ internal class FilterServiceTest {
                         month = 1,
                         day = 1
                     ),
-                    latitude = 0.0,
-                    longitude = 1.0,
+                    latitude = 35.672124,
+                    longitude = 139.741398,
                     accuracy = 1,
                     activities = emptyList()
                 ),
@@ -51,8 +50,8 @@ internal class FilterServiceTest {
                         month = 1,
                         day = 1
                     ),
-                    latitude = 1.0,
-                    longitude = 1.0,
+                    latitude = 35.670123,
+                    longitude = 139.750074,
                     accuracy = 1,
                     activities = emptyList()
                 ),
@@ -62,15 +61,15 @@ internal class FilterServiceTest {
                         month = 1,
                         day = 1
                     ),
-                    latitude = 1.0 / sqrt(2.0),
-                    longitude = 1.0 / sqrt(2.0),
+                    latitude = 35.686153,
+                    longitude = 139.730211,
                     accuracy = 1,
                     activities = emptyList()
                 )
             )
-            val latitude = 0.0
-            val longitude = 0.0
-            val distance = 1.0
+            val latitude = 35.676793
+            val longitude = 139.73727
+            val distance = 0.64
 
             val expected = listOf(
                 Location(
@@ -79,8 +78,8 @@ internal class FilterServiceTest {
                         month = 1,
                         day = 1
                     ),
-                    latitude = 1.0,
-                    longitude = 0.0,
+                    latitude = 35.676793,
+                    longitude = 139.73727,
                     accuracy = 1,
                     activities = emptyList()
                 ),
@@ -90,19 +89,8 @@ internal class FilterServiceTest {
                         month = 1,
                         day = 1
                     ),
-                    latitude = 0.0,
-                    longitude = 1.0,
-                    accuracy = 1,
-                    activities = emptyList()
-                ),
-                Location(
-                    timestamp = DateTime(
-                        year = 2019,
-                        month = 1,
-                        day = 1
-                    ),
-                    latitude = 1.0 / sqrt(2.0),
-                    longitude = 1.0 / sqrt(2.0),
+                    latitude = 35.672124,
+                    longitude = 139.741398,
                     accuracy = 1,
                     activities = emptyList()
                 )
