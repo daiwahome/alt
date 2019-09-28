@@ -2,6 +2,7 @@ package com.github.daiwahome.alt.cli
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.arguments.argument
+import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.multiple
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.transformValues
@@ -27,14 +28,30 @@ class AltCli(
 ) {
 
     // Options
-    private val apiKey: String? by option("--api-key", envvar = "GOOGLE_MAP_API_KEY")
+    private val apiKey: String? by option(
+        "--api-key",
+        envvar = "GOOGLE_MAP_API_KEY",
+        help = "Google Maps API Key"
+    )
 
-    private val circle: Triple<Double, Double, Double>? by option("--circle", help = "lat long dist")
+    private val dryRun: Boolean by option(
+        "--dry-run",
+        help = "dry run flag"
+    )
+        .flag()
+
+    private val circle: Triple<Double, Double, Double>? by option(
+        "--circle",
+        help = "lat long dist"
+    )
         .double()
         .triple()
         .validate { it.first in -90.0..90.0 && it.second in -180.0..180.0 }
 
-    private val timeRange: Pair<DateTime, DateTime>? by option("--time", help = "")
+    private val timeRange: Pair<DateTime, DateTime>? by option(
+        "--time",
+        help = "start end"
+    )
         .transformValues(2) {
             Pair(
                 DateTime.parse(it[0]).local,
@@ -42,16 +59,26 @@ class AltCli(
             )
         }
 
-    private val types: List<String> by option("--type", help = "")
+    private val types: List<String> by option(
+        "--type",
+        help = "type1 type2 ..."
+    )
         .multiple()
-        .validate { types -> types.all { type -> ActivityType.values().map { it.toString() }.contains(type) } }
+        .validate { types ->
+            types.all { type ->
+                ActivityType.values()
+                    .map { it.toString() }
+                    .contains(type)
+            }
+        }
 
     // Arguments
-    private val path: File by argument().file(
-        exists = true,
-        folderOkay = false,
-        readable = true
-    )
+    private val path: File by argument()
+        .file(
+            exists = true,
+            folderOkay = false,
+            readable = true
+        )
 
     override fun run() {
         if (apiKey == null) {
@@ -84,6 +111,11 @@ class AltCli(
                 )
             }
             candidates.map { location -> Pair(location.latitude, location.longitude) }
+        }
+
+        if (dryRun) {
+            echo("Request ${locations.size} locations.")
+            return
         }
 
         val responses: List<ReverseGeocodingResponse> = locations.map {
