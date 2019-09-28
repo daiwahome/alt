@@ -33,6 +33,6 @@ class GoogleApiService(
                 append("key", apiKey)
             }
         }.build()
-        client.use { it.get<ReverseGeocodingResponse>(url) }
+        client.get<ReverseGeocodingResponse>(url)
     }
 }
