@@ -5,9 +5,10 @@ import assertk.assertions.isEqualTo
 import com.github.daiwahome.alt.model.AddressComponent
 import com.github.daiwahome.alt.model.AddressType
 import com.github.daiwahome.alt.model.Geometry
+import com.github.daiwahome.alt.model.GeometryBoundary
 import com.github.daiwahome.alt.model.GeometryLocation
 import com.github.daiwahome.alt.model.GeometryLocationType
-import com.github.daiwahome.alt.model.GeometryBoundary
+import com.github.daiwahome.alt.model.PlusCode
 import com.github.daiwahome.alt.model.ReverseGeocodingResult
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Nested
@@ -71,6 +72,10 @@ internal class ReverseGeocodingResultTest {
                     }
                   },
                   "place_id": "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                  "plus_code": {
+                    "compound_code": "P27Q+MC Brooklyn, New York, United States",
+                    "global_code": "87G8P27Q+MC"
+                  },
                   "types": [
                     "bakery",
                     "cafe",
@@ -129,6 +134,10 @@ internal class ReverseGeocodingResultTest {
                     )
                 ),
                 placeId = "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                plusCode = PlusCode(
+                    compoundCode = "P27Q+MC Brooklyn, New York, United States",
+                    globalCode = "87G8P27Q+MC"
+                ),
                 types = listOf(
                     AddressType.BAKERY,
                     AddressType.CAFE,
@@ -195,6 +204,10 @@ internal class ReverseGeocodingResultTest {
                     )
                 ),
                 placeId = "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                plusCode = PlusCode(
+                    compoundCode = "P27Q+MC Brooklyn, New York, United States",
+                    globalCode = "87G8P27Q+MC"
+                ),
                 types = listOf(
                     AddressType.BAKERY,
                     AddressType.CAFE,
@@ -254,6 +267,10 @@ internal class ReverseGeocodingResultTest {
                     }
                   },
                   "place_id": "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                  "plus_code": {
+                    "compound_code": "P27Q+MC__Brooklyn,__New__York,__United__States",
+                    "global_code": "87G8P27Q+MC"
+                  },
                   "types": [
                     "bakery",
                     "cafe",

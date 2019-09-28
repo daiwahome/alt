@@ -79,6 +79,10 @@ internal class ReverseGeocodingResponseTest {
                         }
                       },
                       "place_id": "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                      "plus_code": {
+                        "compound_code": "P27Q+MC Brooklyn, New York, United States",
+                        "global_code": "87G8P27Q+MC"
+                      },
                       "types": [
                         "bakery",
                         "cafe",
@@ -146,6 +150,10 @@ internal class ReverseGeocodingResponseTest {
                             )
                         ),
                         placeId = "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                        plusCode = PlusCode(
+                            compoundCode = "P27Q+MC Brooklyn, New York, United States",
+                            globalCode = "87G8P27Q+MC"
+                        ),
                         types = listOf(
                             AddressType.BAKERY,
                             AddressType.CAFE,
@@ -221,6 +229,10 @@ internal class ReverseGeocodingResponseTest {
                             )
                         ),
                         placeId = "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                        plusCode = PlusCode(
+                            compoundCode = "P27Q+MC Brooklyn, New York, United States",
+                            globalCode = "87G8P27Q+MC"
+                        ),
                         types = listOf(
                             AddressType.BAKERY,
                             AddressType.CAFE,
@@ -289,6 +301,10 @@ internal class ReverseGeocodingResponseTest {
                         }
                       },
                       "place_id": "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                      "plus_code": {
+                        "compound_code": "P27Q+MC__Brooklyn,__New__York,__United__States",
+                        "global_code": "87G8P27Q+MC"
+                      },
                       "types": [
                         "bakery",
                         "cafe",
