@@ -75,9 +75,9 @@ data class Location(
             return Location(
                 timestamp = timestampMs?.let { DateTime.fromUnix(it.toLong()) }
                     ?: throw MissingFieldException("timestampMs"),
-                latitude = latitudeE7?.let { it.toDouble() / 10e7 }
+                latitude = latitudeE7?.let { it.toDouble() / 10e6 }
                     ?: throw MissingFieldException("latitudeE7"),
-                longitude = longitudeE7?.let { it.toDouble() / 10e7 }
+                longitude = longitudeE7?.let { it.toDouble() / 10e6 }
                     ?: throw MissingFieldException("longitudeE7"),
                 accuracy = accuracy ?: throw MissingFieldException("accuracy"),
                 velocity = velocity,
@@ -91,8 +91,8 @@ data class Location(
         override fun serialize(encoder: Encoder, obj: Location) {
             encoder.beginStructure(descriptor).apply {
                 encodeStringElement(descriptor, 0, obj.timestamp.unixMillisLong.toString())
-                encodeLongElement(descriptor, 1, (obj.latitude * 10e7).toLong())
-                encodeLongElement(descriptor, 2, (obj.longitude * 10e7).toLong())
+                encodeLongElement(descriptor, 1, (obj.latitude * 10e6).toLong())
+                encodeLongElement(descriptor, 2, (obj.longitude * 10e6).toLong())
                 encodeIntElement(descriptor, 3, obj.accuracy)
                 obj.velocity?.let { encodeIntElement(descriptor, 4, it) }
                 obj.heading?.let { encodeIntElement(descriptor, 5, it) }
