@@ -16,10 +16,11 @@ internal class AddressComponentTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
-                  "long_name" : "New York",
-                  "short_name" : "NY",
+                  "long_name": "New York",
+                  "short_name": "NY",
                   "types" : [
                     "administrative_area_level_1",
                     "political"
@@ -51,11 +52,12 @@ internal class AddressComponentTest {
                     AddressType.POLITICAL
                 )
             )
+            //language=JSON
             val expected = """
                 {
-                  "long_name" : "New__York",
-                  "short_name" : "NY",
-                  "types" : [
+                  "long_name": "New__York",
+                  "short_name": "NY",
+                  "types": [
                     "administrative_area_level_1",
                     "political"
                   ]

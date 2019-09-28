@@ -19,23 +19,28 @@ internal class LocationTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
                   "timestampMs": "1546300800000",
                   "latitudeE7": 12345000000,
                   "longitudeE7": 12345000000,
-                  "accuracy": 12,
+                  "accuracy": 1,
+                  "velocity": 2,
+                  "heading": 3,
+                  "altitude": 4,
+                  "verticalAccuracy": 5,
                   "activity": [
-                     {
-                       "timestampMs": "1546300800000",
-                       "activity": [
-                         {
-                           "type": "STILL",
-                           "confidence": 100
-                         }
-                       ]
-                     }
-                   ]
+                    {
+                      "timestampMs": "1546300800000",
+                      "activity": [
+                        {
+                          "type": "STILL",
+                          "confidence": 100
+                        }
+                      ]
+                    }
+                  ]
                 }
             """
             val expected = Location(
@@ -46,7 +51,11 @@ internal class LocationTest {
                 ),
                 latitude = 123.45,
                 longitude = 123.45,
-                accuracy = 12,
+                accuracy = 1,
+                velocity = 2,
+                heading = 3,
+                altitude = 4,
+                verticalAccuracy = 5,
                 activities = listOf(
                     ActivityWithTimestamp(
                         timestamp = DateTime(
@@ -67,13 +76,14 @@ internal class LocationTest {
         }
 
         @Test
-        fun `activities should be empty when the attribute is missing`() {
+        fun `some properties should be null or empty when attributes are missing`() {
+            //language=JSON
             val sut = """
                 {
                   "timestampMs": "1546300800000",
                   "latitudeE7": 12345000000,
                   "longitudeE7": 12345000000,
-                  "accuracy": 12
+                  "accuracy": 1
                 }
             """
             val expected = Location(
@@ -84,7 +94,11 @@ internal class LocationTest {
                 ),
                 latitude = 123.45,
                 longitude = 123.45,
-                accuracy = 12,
+                accuracy = 1,
+                velocity = null,
+                heading = null,
+                altitude = null,
+                verticalAccuracy = null,
                 activities = emptyList()
             )
             assertThat(Json.parse(Location.serializer(), sut)).isEqualTo(expected)
@@ -104,7 +118,11 @@ internal class LocationTest {
                 ),
                 latitude = 123.45,
                 longitude = 123.45,
-                accuracy = 12,
+                accuracy = 1,
+                velocity = 2,
+                heading = 3,
+                altitude = 4,
+                verticalAccuracy = 5,
                 activities = listOf(
                     ActivityWithTimestamp(
                         timestamp = DateTime(
@@ -121,12 +139,17 @@ internal class LocationTest {
                     )
                 )
             )
+            //language=JSON
             val expected = """
                 {
                   "timestampMs": "1546300800000",
                   "latitudeE7": 12345000000,
                   "longitudeE7": 12345000000,
-                  "accuracy": 12,
+                  "accuracy": 1,
+                  "velocity": 2,
+                  "heading": 3,
+                  "altitude": 4,
+                  "verticalAccuracy": 5,
                   "activity": [
                      {
                        "timestampMs": "1546300800000",
@@ -137,14 +160,14 @@ internal class LocationTest {
                          }
                        ]
                      }
-                   ]
+                  ]
                 }
             """.replace("\\s".toRegex(), "")
             assertThat(Json.stringify(Location.serializer(), sut)).isEqualTo(expected)
         }
 
         @Test
-        fun `activity should not be contained when the property is empty`() {
+        fun `some attributes should not be contained when property are null or empty`() {
             val sut = Location(
                 timestamp = DateTime(
                     year = 2019,
@@ -153,7 +176,11 @@ internal class LocationTest {
                 ),
                 latitude = 123.45,
                 longitude = 123.45,
-                accuracy = 12,
+                accuracy = 1,
+                velocity = null,
+                heading = null,
+                altitude = null,
+                verticalAccuracy = null,
                 activities = emptyList()
             )
             val expected = """
@@ -161,7 +188,7 @@ internal class LocationTest {
                   "timestampMs": "1546300800000",
                   "latitudeE7": 12345000000,
                   "longitudeE7": 12345000000,
-                  "accuracy": 12
+                  "accuracy": 1
                 }
             """.replace("\\s".toRegex(), "")
             assertThat(Json.stringify(Location.serializer(), sut)).isEqualTo(expected)
