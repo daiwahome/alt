@@ -114,6 +114,12 @@ class AltCli(
                 )
             }
             candidates.map { location -> Pair(location.latitude, location.longitude) }
+                .distinctBy {
+                    Pair(
+                        String.format("%03.4f", it.first),
+                        String.format("%03.4f", it.second)
+                    )
+                }
         }
 
         if (dryRun) {
