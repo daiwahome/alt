@@ -9,5 +9,5 @@ data class ReverseGeocodingResult(
     @SerialName("formatted_address") val formattedAddress: String,
     val geometry: Geometry,
     @SerialName("place_id") val placeId: String,
-    val types: List<PlaceType>
+    val types: List<AddressType>
 )

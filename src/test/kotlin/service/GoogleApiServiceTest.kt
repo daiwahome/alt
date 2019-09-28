@@ -8,7 +8,6 @@ import com.github.daiwahome.alt.model.Geometry
 import com.github.daiwahome.alt.model.GeometryBoundary
 import com.github.daiwahome.alt.model.GeometryLocation
 import com.github.daiwahome.alt.model.GeometryLocationType
-import com.github.daiwahome.alt.model.PlaceType
 import com.github.daiwahome.alt.model.PlusCode
 import com.github.daiwahome.alt.model.ReverseGeocodingResponse
 import com.github.daiwahome.alt.model.ReverseGeocodingResult
@@ -82,12 +81,12 @@ internal class GoogleApiServiceTest {
                 ),
                 placeId = "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
                 types = listOf(
-                    PlaceType.BAKERY,
-                    PlaceType.CAFE,
-                    PlaceType.ESTABLISHMENT,
-                    PlaceType.FOOD,
-                    PlaceType.POINT_OF_INTEREST,
-                    PlaceType.STORE
+                    AddressType.BAKERY,
+                    AddressType.CAFE,
+                    AddressType.ESTABLISHMENT,
+                    AddressType.FOOD,
+                    AddressType.POINT_OF_INTEREST,
+                    AddressType.STORE
                 )
             )
         ),
