@@ -23,8 +23,8 @@ internal class LocationTest {
             val sut = """
                 {
                   "timestampMs": "1546300800000",
-                  "latitudeE7": 12345000000,
-                  "longitudeE7": 12345000000,
+                  "latitudeE7": 1234500000,
+                  "longitudeE7": 1234500000,
                   "accuracy": 1,
                   "velocity": 2,
                   "heading": 3,
@@ -81,8 +81,8 @@ internal class LocationTest {
             val sut = """
                 {
                   "timestampMs": "1546300800000",
-                  "latitudeE7": 12345000000,
-                  "longitudeE7": 12345000000,
+                  "latitudeE7": 1234500000,
+                  "longitudeE7": 1234500000,
                   "accuracy": 1
                 }
             """
@@ -143,8 +143,8 @@ internal class LocationTest {
             val expected = """
                 {
                   "timestampMs": "1546300800000",
-                  "latitudeE7": 12345000000,
-                  "longitudeE7": 12345000000,
+                  "latitudeE7": 1234500000,
+                  "longitudeE7": 1234500000,
                   "accuracy": 1,
                   "velocity": 2,
                   "heading": 3,
@@ -186,8 +186,8 @@ internal class LocationTest {
             val expected = """
                 {
                   "timestampMs": "1546300800000",
-                  "latitudeE7": 12345000000,
-                  "longitudeE7": 12345000000,
+                  "latitudeE7": 1234500000,
+                  "longitudeE7": 1234500000,
                   "accuracy": 1
                 }
             """.replace("\\s".toRegex(), "")
