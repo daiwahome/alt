@@ -15,6 +15,7 @@ internal class PlusCodeTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
                   "compound_code": "P27Q+MC New York, NY, USA",
@@ -30,6 +31,7 @@ internal class PlusCodeTest {
 
         @Test
         fun `compoundCode should be null when the attribute is missing`() {
+            //language=JSON
             val sut = """
                 {
                   "global_code": "87G8P27Q+MC"
@@ -52,6 +54,7 @@ internal class PlusCodeTest {
                 compoundCode = "P27Q+MC New York, NY, USA",
                 globalCode = "87G8P27Q+MC"
             )
+            //language=JSON
             val expected = """
                 {
                   "compound_code": "P27Q+MC__New__York,__NY,__USA",
@@ -68,6 +71,7 @@ internal class PlusCodeTest {
                 compoundCode = null,
                 globalCode = "87G8P27Q+MC"
             )
+            //language=JSON
             val expected = """
                 {
                   "global_code": "87G8P27Q+MC"

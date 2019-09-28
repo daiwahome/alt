@@ -31,6 +31,10 @@ internal class FilterServiceTest {
                     latitude = 35.676793,
                     longitude = 139.73727,
                     accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -42,6 +46,10 @@ internal class FilterServiceTest {
                     latitude = 35.672124,
                     longitude = 139.741398,
                     accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -53,6 +61,10 @@ internal class FilterServiceTest {
                     latitude = 35.670123,
                     longitude = 139.750074,
                     accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -64,6 +76,10 @@ internal class FilterServiceTest {
                     latitude = 35.686153,
                     longitude = 139.730211,
                     accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -81,6 +97,10 @@ internal class FilterServiceTest {
                     latitude = 35.676793,
                     longitude = 139.73727,
                     accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -92,6 +112,10 @@ internal class FilterServiceTest {
                     latitude = 35.672124,
                     longitude = 139.741398,
                     accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -119,7 +143,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -130,7 +158,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -141,7 +173,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -152,7 +188,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -176,7 +216,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -187,7 +231,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -211,7 +259,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -222,7 +274,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -233,7 +289,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -244,7 +304,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -264,7 +328,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -275,7 +343,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -286,7 +358,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -310,7 +386,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -321,7 +401,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -332,7 +416,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -343,7 +431,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -363,7 +455,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -374,7 +470,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 ),
                 Location(
@@ -385,7 +485,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = emptyList()
                 )
             )
@@ -413,7 +517,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = listOf(
                         ActivityWithTimestamp(
                             timestamp = DateTime(
@@ -438,7 +546,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = listOf(
                         ActivityWithTimestamp(
                             timestamp = DateTime(
@@ -467,7 +579,11 @@ internal class FilterServiceTest {
                     ),
                     latitude = 123.45,
                     longitude = 123.45,
-                    accuracy = 12,
+                    accuracy = 1,
+                    velocity = null,
+                    heading = null,
+                    altitude = null,
+                    verticalAccuracy = null,
                     activities = listOf(
                         ActivityWithTimestamp(
                             timestamp = DateTime(

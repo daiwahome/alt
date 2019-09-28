@@ -18,6 +18,7 @@ internal class ActivityWithTimestampTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
                   "timestampMs": "1546300800000",
@@ -47,6 +48,7 @@ internal class ActivityWithTimestampTest {
 
         @Test
         fun `activity should be empty when the attribute is missing`() {
+            //language=JSON
             val sut = """
                 {
                   "timestampMs": "1546300800000"
@@ -82,6 +84,7 @@ internal class ActivityWithTimestampTest {
                     )
                 )
             )
+            //language=JSON
             val expected = """
                 {
                   "timestampMs": "1546300800000",
@@ -106,6 +109,7 @@ internal class ActivityWithTimestampTest {
                 ),
                 activities = emptyList()
             )
+            //language=JSON
             val expected = """
                 {
                   "timestampMs": "1546300800000"

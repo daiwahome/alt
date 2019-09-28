@@ -20,6 +20,7 @@ internal class LocationHistoryTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
                   "locations": [
@@ -27,18 +28,22 @@ internal class LocationHistoryTest {
                       "timestampMs": "1546300800000",
                       "latitudeE7": 12345000000,
                       "longitudeE7": 12345000000,
-                      "accuracy": 12,
+                      "accuracy": 1,
+                      "velocity": 2,
+                      "heading": 3,
+                      "altitude": 4,
+                      "verticalAccuracy": 5,
                       "activity": [
-                         {
-                           "timestampMs": "1546300800000",
-                           "activity": [
-                             {
-                               "type": "STILL",
-                               "confidence": 100
-                             }
-                           ]
-                         }
-                       ]
+                        {
+                          "timestampMs": "1546300800000",
+                          "activity": [
+                            {
+                              "type": "STILL",
+                              "confidence": 100
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -53,7 +58,11 @@ internal class LocationHistoryTest {
                         ),
                         latitude = 123.45,
                         longitude = 123.45,
-                        accuracy = 12,
+                        accuracy = 1,
+                        velocity = 2,
+                        heading = 3,
+                        altitude = 4,
+                        verticalAccuracy = 5,
                         activities = listOf(
                             ActivityWithTimestamp(
                                 timestamp = DateTime(
@@ -91,7 +100,11 @@ internal class LocationHistoryTest {
                         ),
                         latitude = 123.45,
                         longitude = 123.45,
-                        accuracy = 12,
+                        accuracy = 1,
+                        velocity = 2,
+                        heading = 3,
+                        altitude = 4,
+                        verticalAccuracy = 5,
                         activities = listOf(
                             ActivityWithTimestamp(
                                 timestamp = DateTime(
@@ -110,6 +123,7 @@ internal class LocationHistoryTest {
                     )
                 )
             )
+            //language=JSON
             val expected = """
                 {
                   "locations": [
@@ -117,18 +131,22 @@ internal class LocationHistoryTest {
                       "timestampMs": "1546300800000",
                       "latitudeE7": 12345000000,
                       "longitudeE7": 12345000000,
-                      "accuracy": 12,
+                      "accuracy": 1,
+                      "velocity": 2,
+                      "heading": 3,
+                      "altitude": 4,
+                      "verticalAccuracy": 5,
                       "activity": [
-                         {
-                           "timestampMs": "1546300800000",
-                           "activity": [
-                             {
-                               "type": "STILL",
-                               "confidence": 100
-                             }
-                           ]
-                         }
-                       ]
+                        {
+                          "timestampMs": "1546300800000",
+                          "activity": [
+                            {
+                              "type": "STILL",
+                              "confidence": 100
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }

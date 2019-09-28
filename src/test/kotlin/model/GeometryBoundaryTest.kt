@@ -16,15 +16,16 @@ internal class GeometryBoundaryTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
-                  "northeast" : {
-                    "lat" : 40.71559738029149,
-                    "lng" : -73.9600613197085
+                  "northeast": {
+                    "lat": 40.71559738029149,
+                    "lng": -73.9600613197085
                   },
-                  "southwest" : {
-                    "lat" : 40.71289941970849,
-                    "lng" : -73.96275928029151
+                  "southwest": {
+                    "lat": 40.71289941970849,
+                    "lng": -73.96275928029151
                   }
                 }
             """
@@ -57,15 +58,16 @@ internal class GeometryBoundaryTest {
                     longitude = -73.96275928029151
                 )
             )
+            //language=JSON
             val expected = """
                 {
-                  "northeast" : {
-                    "lat" : 40.71559738029149,
-                    "lng" : -73.9600613197085
+                  "northeast": {
+                    "lat": 40.71559738029149,
+                    "lng": -73.9600613197085
                   },
-                  "southwest" : {
-                    "lat" : 40.71289941970849,
-                    "lng" : -73.96275928029151
+                  "southwest": {
+                    "lat": 40.71289941970849,
+                    "lng": -73.96275928029151
                   }
                 }
             """.replace("\\s".toRegex(), "")

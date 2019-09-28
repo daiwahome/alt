@@ -18,31 +18,32 @@ internal class GeometryTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
                   "bounds": {
-                    "northeast" : {
-                      "lat" : 40.71559738029149,
-                      "lng" : -73.9600613197085
+                    "northeast": {
+                      "lat": 40.71559738029149,
+                      "lng": -73.9600613197085
                     },
-                    "southwest" : {
-                      "lat" : 40.71289941970849,
-                      "lng" : -73.96275928029151
+                    "southwest": {
+                      "lat": 40.71289941970849,
+                      "lng": -73.96275928029151
                     }
                   },
                   "location": {
-                    "lat" : 40.7142484,
-                    "lng" : -73.9614103
+                    "lat": 40.7142484,
+                    "lng": -73.9614103
                   },
                   "location_type": "ROOFTOP",
                   "viewport": {
-                    "northeast" : {
-                      "lat" : 40.71559738029149,
-                      "lng" : -73.9600613197085
+                    "northeast": {
+                      "lat": 40.71559738029149,
+                      "lng": -73.9600613197085
                     },
-                    "southwest" : {
-                      "lat" : 40.71289941970849,
-                      "lng" : -73.96275928029151
+                    "southwest": {
+                      "lat": 40.71289941970849,
+                      "lng": -73.96275928029151
                     }
                   }
                 }
@@ -110,31 +111,32 @@ internal class GeometryTest {
                     )
                 )
             )
+            //language=JSON
             val expected = """
                 {
                   "bounds": {
-                    "northeast" : {
-                      "lat" : 40.71559738029149,
-                      "lng" : -73.9600613197085
+                    "northeast": {
+                      "lat": 40.71559738029149,
+                      "lng": -73.9600613197085
                     },
-                    "southwest" : {
-                      "lat" : 40.71289941970849,
-                      "lng" : -73.96275928029151
+                    "southwest": {
+                      "lat": 40.71289941970849,
+                      "lng": -73.96275928029151
                     }
                   },
                   "location": {
-                    "lat" : 40.7142484,
-                    "lng" : -73.9614103
+                    "lat": 40.7142484,
+                    "lng": -73.9614103
                   },
                   "location_type": "ROOFTOP",
                   "viewport": {
-                    "northeast" : {
-                      "lat" : 40.71559738029149,
-                      "lng" : -73.9600613197085
+                    "northeast": {
+                      "lat": 40.71559738029149,
+                      "lng": -73.9600613197085
                     },
-                    "southwest" : {
-                      "lat" : 40.71289941970849,
-                      "lng" : -73.96275928029151
+                    "southwest": {
+                      "lat": 40.71289941970849,
+                      "lng": -73.96275928029151
                     }
                   }
                 }

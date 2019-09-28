@@ -21,13 +21,14 @@ internal class ReverseGeocodingResultTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
                   "address_components": [
                     {
-                      "long_name" : "New York",
-                      "short_name" : "NY",
-                      "types" : [
+                      "long_name": "New York",
+                      "short_name": "NY",
+                      "types": [
                         "administrative_area_level_1",
                         "political"
                       ]
@@ -41,36 +42,36 @@ internal class ReverseGeocodingResultTest {
                       ]
                     }
                   ],
-                  "formatted_address" : "279 Bedford Ave, Brooklyn, NY 11211, USA",
-                  "geometry" : {
-                    "bounds" : {
-                      "northeast" : {
-                        "lat" : 40.71559738029149,
-                        "lng" : -73.9600613197085
+                  "formatted_address": "279 Bedford Ave, Brooklyn, NY 11211, USA",
+                  "geometry": {
+                    "bounds": {
+                      "northeast": {
+                        "lat": 40.71559738029149,
+                        "lng": -73.9600613197085
                       },
-                      "southwest" : {
-                        "lat" : 40.71289941970849,
-                        "lng" : -73.96275928029151
+                      "southwest": {
+                        "lat": 40.71289941970849,
+                        "lng": -73.96275928029151
                       }
                     },
-                    "location" : {
-                      "lat" : 40.7142484,
-                      "lng" : -73.9614103
+                    "location": {
+                      "lat": 40.7142484,
+                      "lng": -73.9614103
                     },
-                    "location_type" : "ROOFTOP",
-                    "viewport" : {
-                      "northeast" : {
-                        "lat" : 40.71559738029149,
-                        "lng" : -73.9600613197085
+                    "location_type": "ROOFTOP",
+                    "viewport": {
+                      "northeast": {
+                        "lat": 40.71559738029149,
+                        "lng": -73.9600613197085
                       },
-                      "southwest" : {
-                        "lat" : 40.71289941970849,
-                        "lng" : -73.96275928029151
+                      "southwest": {
+                        "lat": 40.71289941970849,
+                        "lng": -73.96275928029151
                       }
                     }
                   },
-                  "place_id" : "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
-                  "types" : [
+                  "place_id": "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                  "types": [
                     "bakery",
                     "cafe",
                     "establishment",
@@ -203,13 +204,14 @@ internal class ReverseGeocodingResultTest {
                     AddressType.STORE
                 )
             )
+            //language=JSON
             val expected = """
                 {
                   "address_components": [
                     {
-                      "long_name" : "New__York",
-                      "short_name" : "NY",
-                      "types" : [
+                      "long_name": "New__York",
+                      "short_name": "NY",
+                      "types": [
                         "administrative_area_level_1",
                         "political"
                       ]
@@ -223,36 +225,36 @@ internal class ReverseGeocodingResultTest {
                       ]
                     }
                   ],
-                  "formatted_address" : "279__Bedford__Ave,__Brooklyn,__NY__11211,__USA",
-                  "geometry" : {
-                    "bounds" : {
-                      "northeast" : {
-                        "lat" : 40.71559738029149,
-                        "lng" : -73.9600613197085
+                  "formatted_address": "279__Bedford__Ave,__Brooklyn,__NY__11211,__USA",
+                  "geometry": {
+                    "bounds": {
+                      "northeast": {
+                        "lat": 40.71559738029149,
+                        "lng": -73.9600613197085
                       },
-                      "southwest" : {
-                        "lat" : 40.71289941970849,
-                        "lng" : -73.96275928029151
+                      "southwest": {
+                        "lat": 40.71289941970849,
+                        "lng": -73.96275928029151
                       }
                     },
-                    "location" : {
-                      "lat" : 40.7142484,
-                      "lng" : -73.9614103
+                    "location": {
+                      "lat": 40.7142484,
+                      "lng": -73.9614103
                     },
-                    "location_type" : "ROOFTOP",
-                    "viewport" : {
-                      "northeast" : {
-                        "lat" : 40.71559738029149,
-                        "lng" : -73.9600613197085
+                    "location_type": "ROOFTOP",
+                    "viewport": {
+                      "northeast": {
+                        "lat": 40.71559738029149,
+                        "lng": -73.9600613197085
                       },
-                      "southwest" : {
-                        "lat" : 40.71289941970849,
-                        "lng" : -73.96275928029151
+                      "southwest": {
+                        "lat": 40.71289941970849,
+                        "lng": -73.96275928029151
                       }
                     }
                   },
-                  "place_id" : "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
-                  "types" : [
+                  "place_id": "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                  "types": [
                     "bakery",
                     "cafe",
                     "establishment",

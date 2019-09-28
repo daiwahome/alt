@@ -19,6 +19,10 @@ data class Location(
     @SerialName("latitudeE7") val latitude: Double,
     @SerialName("longitudeE7") val longitude: Double,
     val accuracy: Int,
+    val velocity: Int?,
+    val heading: Int?,
+    val altitude: Int?,
+    val verticalAccuracy: Int?,
     @SerialName("activity") val activities: List<ActivityWithTimestamp>
 ) {
 
@@ -32,6 +36,10 @@ data class Location(
                     addElement("latitudeE7")
                     addElement("longitudeE7")
                     addElement("accuracy")
+                    addElement("velocity")
+                    addElement("heading")
+                    addElement("altitude")
+                    addElement("verticalAccuracy")
                     addElement("activity")
                 }
             }
@@ -41,6 +49,10 @@ data class Location(
             var latitudeE7: Long? = null
             var longitudeE7: Long? = null
             var accuracy: Int? = null
+            var velocity: Int? = null
+            var heading: Int? = null
+            var altitude: Int? = null
+            var verticalAccuracy: Int? = null
             var activity: List<ActivityWithTimestamp> = emptyList()
 
             decoder.beginStructure(descriptor).apply {
@@ -51,7 +63,11 @@ data class Location(
                         1 -> latitudeE7 = decodeLongElement(descriptor, i)
                         2 -> longitudeE7 = decodeLongElement(descriptor, i)
                         3 -> accuracy = decodeIntElement(descriptor, i)
-                        4 -> activity = decodeSerializableElement(descriptor, i, ActivityWithTimestamp.serializer().list)
+                        4 -> velocity = decodeIntElement(descriptor, i)
+                        5 -> heading = decodeIntElement(descriptor, i)
+                        6 -> altitude = decodeIntElement(descriptor, i)
+                        7 -> verticalAccuracy = decodeIntElement(descriptor, i)
+                        8 -> activity = decodeSerializableElement(descriptor, i, ActivityWithTimestamp.serializer().list)
                     }
                 }
             }.endStructure(descriptor)
@@ -64,6 +80,10 @@ data class Location(
                 longitude = longitudeE7?.let { it.toDouble() / 10e7 }
                     ?: throw MissingFieldException("longitudeE7"),
                 accuracy = accuracy ?: throw MissingFieldException("accuracy"),
+                velocity = velocity,
+                heading = heading,
+                altitude = altitude,
+                verticalAccuracy = verticalAccuracy,
                 activities = activity
             )
         }
@@ -74,8 +94,12 @@ data class Location(
                 encodeLongElement(descriptor, 1, (obj.latitude * 10e7).toLong())
                 encodeLongElement(descriptor, 2, (obj.longitude * 10e7).toLong())
                 encodeIntElement(descriptor, 3, obj.accuracy)
+                obj.velocity?.let { encodeIntElement(descriptor, 4, it) }
+                obj.heading?.let { encodeIntElement(descriptor, 5, it) }
+                obj.altitude?.let { encodeIntElement(descriptor, 6, it) }
+                obj.verticalAccuracy?.let { encodeIntElement(descriptor, 7, it) }
                 if (obj.activities.isNotEmpty()) {
-                    encodeSerializableElement(descriptor, 4, ActivityWithTimestamp.serializer().list, obj.activities)
+                    encodeSerializableElement(descriptor, 8, ActivityWithTimestamp.serializer().list, obj.activities)
                 }
             }.endStructure(descriptor)
         }

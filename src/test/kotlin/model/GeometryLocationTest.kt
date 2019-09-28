@@ -15,10 +15,11 @@ internal class GeometryLocationTest {
 
         @Test
         fun deserialize() {
+            //language=JSON
             val sut = """
                 {
-                  "lat" : 40.7142484,
-                  "lng" : -73.9614103
+                  "lat": 40.7142484,
+                  "lng": -73.9614103
                 }
             """
             val expected = GeometryLocation(
@@ -38,10 +39,11 @@ internal class GeometryLocationTest {
                 latitude = 40.7142484,
                 longitude = -73.9614103
             )
+            //language=JSON
             val expected = """
                 {
-                  "lat" : 40.7142484,
-                  "lng" : -73.9614103
+                  "lat": 40.7142484,
+                  "lng": -73.9614103
                 }
             """.replace("\\s".toRegex(), "")
             assertThat(Json.stringify(GeometryLocation.serializer(), sut)).isEqualTo(expected)
