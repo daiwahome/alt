@@ -77,6 +77,49 @@ internal class GeometryTest {
             )
             assertThat(Json.parse(Geometry.serializer(), sut)).isEqualTo(expected)
         }
+
+        @Test
+        fun `boundary should be null when the attribute is missing`() {
+            //language=JSON
+            val sut = """
+                {
+                  "location": {
+                    "lat": 40.7142484,
+                    "lng": -73.9614103
+                  },
+                  "location_type": "ROOFTOP",
+                  "viewport": {
+                    "northeast": {
+                      "lat": 40.71559738029149,
+                      "lng": -73.9600613197085
+                    },
+                    "southwest": {
+                      "lat": 40.71289941970849,
+                      "lng": -73.96275928029151
+                    }
+                  }
+                }
+            """
+            val expected = Geometry(
+                boundary = null,
+                location = GeometryLocation(
+                    latitude = 40.7142484,
+                    longitude = -73.9614103
+                ),
+                locationType = GeometryLocationType.ROOFTOP,
+                viewport = GeometryBoundary(
+                    northeast = GeometryLocation(
+                        latitude = 40.71559738029149,
+                        longitude = -73.9600613197085
+                    ),
+                    southwest = GeometryLocation(
+                        latitude = 40.71289941970849,
+                        longitude = -73.96275928029151
+                    )
+                )
+            )
+            assertThat(Json.parse(Geometry.serializer(), sut)).isEqualTo(expected)
+        }
     }
 
     @Nested
@@ -124,6 +167,49 @@ internal class GeometryTest {
                       "lng": -73.96275928029151
                     }
                   },
+                  "location": {
+                    "lat": 40.7142484,
+                    "lng": -73.9614103
+                  },
+                  "location_type": "ROOFTOP",
+                  "viewport": {
+                    "northeast": {
+                      "lat": 40.71559738029149,
+                      "lng": -73.9600613197085
+                    },
+                    "southwest": {
+                      "lat": 40.71289941970849,
+                      "lng": -73.96275928029151
+                    }
+                  }
+                }
+            """.replace("\\s".toRegex(), "")
+            assertThat(Json.stringify(Geometry.serializer(), sut)).isEqualTo(expected)
+        }
+
+        @Test
+        fun `bounds should not be contained when the property is null`() {
+            val sut = Geometry(
+                boundary = null,
+                location = GeometryLocation(
+                    latitude = 40.7142484,
+                    longitude = -73.9614103
+                ),
+                locationType = GeometryLocationType.ROOFTOP,
+                viewport = GeometryBoundary(
+                    northeast = GeometryLocation(
+                        latitude = 40.71559738029149,
+                        longitude = -73.9600613197085
+                    ),
+                    southwest = GeometryLocation(
+                        latitude = 40.71289941970849,
+                        longitude = -73.96275928029151
+                    )
+                )
+            )
+            //language=JSON
+            val expected = """
+                {
                   "location": {
                     "lat": 40.7142484,
                     "lng": -73.9614103

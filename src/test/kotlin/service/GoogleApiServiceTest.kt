@@ -80,6 +80,10 @@ internal class GoogleApiServiceTest {
                     )
                 ),
                 placeId = "ChIJT2x8Q2BZwokRpBu2jUzX3dE",
+                plusCode = PlusCode(
+                    compoundCode = "P27Q+MC Brooklyn, New York, United States",
+                    globalCode = "87G8P27Q+MC"
+                ),
                 types = listOf(
                     AddressType.BAKERY,
                     AddressType.CAFE,
