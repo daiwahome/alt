@@ -88,11 +88,6 @@ class AltCli(
         )
 
     override fun run() {
-        if (apiKey == null) {
-            echo("Should set GOOGLE_MAP_API_KEY or use --api-key option.")
-            exitProcess(1)
-        }
-
         val history = Json.parse(LocationHistory.serializer(), path.readText())
 
         val locations: List<Pair<Double, Double>> = history.locations.let { locations ->
@@ -125,7 +120,10 @@ class AltCli(
             echo("Request ${locations.size} locations.")
             return
         }
-
+        if (apiKey == null) {
+            echo("Should set GOOGLE_MAP_API_KEY or use --api-key option.")
+            exitProcess(1)
+        }
         val responses: List<ReverseGeocodingResponse> = locations.map {
             googleApiService.requestReverseGeocoding(it.first, it.second, apiKey!!)
         }
@@ -134,7 +132,6 @@ class AltCli(
             echo(responses.joinToString("\n") { Json.stringify(ReverseGeocodingResponse.serializer(), it) })
             return
         }
-
         responses.flatMap { response ->
             response.results.map { it.formattedAddress }
         }.let {
